@@ -4,7 +4,18 @@ import "./App.css";
 
 class App extends Component {
   render() {
-    
+    let subscribers = [
+      {
+        id: 1,
+        name: "Krish Desai",
+        phone: "7600486767",
+      },
+      {
+        id: 2,
+        name: "Hetal Desai",
+        phone: "9428611032",
+      }
+    ];
     return (
       <div>
         <Header />
@@ -15,14 +26,14 @@ class App extends Component {
             <span className="grid-item name-heading">Name</span>
             <span className="grid-item phone-heading">Phone</span>
           </div>
-          <div className="grid-container">
-            <span className="grid-item">Krish</span>
-            <span className="grid-item">7600486767</span>
-          </div>
-          <div className="grid-container">
-            <span className="grid-item">Hetal</span>
-            <span className="grid-item">9428611032</span>
-          </div>
+          {
+          subscribers.map(sub => {
+            return <div key={sub.id} className="grid-container">
+              <span className="grid-item">{sub.name}</span>
+              <span className="grid-item">{sub.phone}</span>
+            </div>
+          })
+        }
         </div>
       </div>
     );
