@@ -10,11 +10,26 @@ class App extends Component {
    this.state = {
      subscribersListToShow: []
    } 
+   console.log("Constructor Called")
+  }
+
+  componentDidMount() {
+    let newSubscriber = {
+      id: 1,
+      name: "Krish Desai",
+      phone: "7600486767"
+    }
+    let subscribersList = this.state.subscribersListToShow;
+    subscribersList.push(newSubscriber);
+    this.setState({subscribersListToShow: subscribersList})
+    console.log("Component Did Mount");
+    console.log("State", this.state)
   }
   clickHandler(message){
     alert(message)
   }
   render() {
+    console.log("Render Called")
     // let subscribers = [
     //   {
     //     id: 1,
@@ -29,7 +44,7 @@ class App extends Component {
     // ];
     return (
       <div>
-        <Header heading="Phone-Directory" />
+        <Header heading="Phone Directory" />
         <div className="component-body-container">
           <button className="custom-btn add-btn">Add</button>
 
