@@ -1,30 +1,10 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import "./App.css";
+import "./ShowSubscribers.css";
 
-class App extends Component {
+class ShowSubscribers extends Component {
 
-  constructor()
-  {
-   super();
-   this.state = {
-     subscribersListToShow: []
-   } 
-   console.log("Constructor Called")
-  }
-
-  componentDidMount() {
-    let newSubscriber = {
-      id: 1,
-      name: "Krish Desai",
-      phone: "7600486767"
-    }
-    let subscribersList = this.state.subscribersListToShow;
-    subscribersList.push(newSubscriber);
-    this.setState({subscribersListToShow: subscribersList})
-    console.log("Component Did Mount");
-    console.log("State", this.state)
-  }
+  
   clickHandler(message){
     alert(message)
   }
@@ -53,7 +33,7 @@ class App extends Component {
             <span className="grid-item phone-heading">Phone</span>
           </div>
           {
-          this.state.subscribersListToShow.map(sub => {
+          this.props.subscribersList.map(sub => {
             return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
@@ -69,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscribers;
